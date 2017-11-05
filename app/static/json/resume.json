@@ -1,0 +1,106 @@
+{
+  "work_experience": {
+    "job1": {
+      "job_title": "Marketing Assistant",
+      "job_company": "Shopping Center 'Santa Ursula'",
+      "job_company_logo": "",
+      "job_location": "Ribeirao Preto, Brazil",
+      "job_start": "01/09/2014",
+      "job_end": "01/03/2016",
+      "job_image": "",
+      "job_area": "",
+      "job_industry": "Commerce",
+      "job_description": {
+        "presentation": "",
+        "responsabilities": ["Support the planning, execution, monitoring and measurement of promotional campaigns & events;",
+          "Relationship and negotiation with suppliers, advertising agency and press;",
+          "Relationship with the consumer, merchant and other parties;",
+          "Social media management & website management"
+        ]
+      },
+      "job_link": "http://www.shoppingsantaursula.com.br/"
+    },
+    "job2": {
+      "job_title": "Management Assistant Marketing",
+      "job_company": "Estudio Criativo 'Limao Cravo'",
+      "job_company_logo": "",
+      "job_location": "Ribeirao Preto, Brazil",
+      "job_start": "01/01/2014",
+      "job_end": "01/08/2014",
+      "job_image": "",
+      "job_area": "",
+      "job_industry": "Consultancy",
+      "job_description": {
+        "presentation": "",
+        "responsabilities": ["Digital marketing",
+          "Business management support",
+          "Planning & event management for clients"
+        ]
+      },
+      "job_link": "http://limaocravo.net/"
+    },
+    "job3": {
+      "job_title": "Sales Consultant",
+      "job_company": "Egali Intercambio",
+      "job_company_logo": "",
+      "job_location": "Ribeirao Preto, Brazil",
+      "job_start": "01/07/2013",
+      "job_end": "01/01/2014",
+      "job_image": "",
+      "job_area": "",
+      "job_industry": "Sales",
+      "job_description": {
+        "presentation": "",
+        "responsabilities": ["Sell internships programs of the company",
+          "Technical assistance for customers",
+          "Trade Marketing: consumer market identification, management partnership with universities and schools to promote the company’s product"
+        ]
+      },
+      "job_link": "http://egali.com.br"
+    },
+    "job4": {
+      "job_title": "Communication Assistant",
+      "job_company": "Watanmal",
+      "job_company_logo": "",
+      "job_location": "Chennai, India",
+      "job_start": "01/08/2012",
+      "job_end": "01/12/2012",
+      "job_image": "",
+      "job_area": "",
+      "job_industry": "Supply chain management",
+      "job_description": {
+        "presentation": "",
+        "responsabilities": ["Supplier search for company's products",
+          "Supplier assessment, selection and management",
+          "Operations management support"
+        ]
+      },
+      "job_link": "http://www.watanmal.com/"
+    }
+  },
+  "education": {
+    "school1": {
+      "education_school": "Fundacao Armando Alvares Penteado",
+      "education_school_link": "http://www.faap.br/english/home/",
+      "education_school_logo":"",
+      "education_school_location": "Ribeirao Preto, Brazil",
+      "education_start": "01/08/2013",
+      "education_end": "01/08/2015",
+      "education_type": "Master",
+      "education_level": "BAC +5"
+    },
+    "school2": {
+      "education_school": "Fundacao Armando Alvares Penteado",
+      "education_school_link": "http://www.faap.br/english/home/",
+      "education_school_logo":"",
+      "education_school_location": "Ribeirao Preto, Brazil",
+      "education_start": "01/08/2013",
+      "education_end": "01/08/2015",
+      "education_type": "Master",
+      "education_level": "BAC +5"
+    }
+  },
+  "competences": {
+    
+  }
+}
