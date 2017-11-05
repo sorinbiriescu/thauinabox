@@ -8,6 +8,10 @@ from flask import render_template, request, redirect, url_for
 def main():
     return render_template('index.html')
 
-@app.route("/work-timeline")
-def work_timeline():
-    return render_template('work-timeline.html')
+@app.route("/resume")
+def resume():
+    return render_template('resume.html')
+
+@app.route("/leisure")
+def leisure():
+    return render_template('leisure.html')
