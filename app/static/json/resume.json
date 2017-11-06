@@ -82,25 +82,91 @@
     "school1": {
       "education_school": "Fundacao Armando Alvares Penteado",
       "education_school_link": "http://www.faap.br/english/home/",
-      "education_school_logo":"",
+      "education_school_logo": "",
       "education_school_location": "Ribeirao Preto, Brazil",
       "education_start": "01/08/2013",
       "education_end": "01/08/2015",
       "education_type": "Master",
-      "education_level": "BAC +5"
+      "education_level": "BAC +5",
+      "education_degree_name": ""
     },
     "school2": {
       "education_school": "Fundacao Armando Alvares Penteado",
       "education_school_link": "http://www.faap.br/english/home/",
-      "education_school_logo":"",
+      "education_school_logo": "",
       "education_school_location": "Ribeirao Preto, Brazil",
       "education_start": "01/08/2013",
       "education_end": "01/08/2015",
       "education_type": "Master",
-      "education_level": "BAC +5"
+      "education_level": "BAC +5",
+      "education_degree_name": ""
+    }
+  },
+  "languages": {
+    "language1": {
+      "name": "english",
+      "country_code":"gb",
+      "level":"proficient"
+    },
+    "language2": {
+      "name": "portuguese",
+      "country_code":"br",
+      "level":"native"
+    },
+    "language3": {
+      "name": "french",
+      "country_code":"fr",
+      "level":"proficient"
+    },
+    "language4": {
+      "name": "spanish",
+      "country_code":"es",
+      "level":"basic"
     }
   },
   "competences": {
-    
+    "competence1": {
+      "type": "technical",
+      "category": "office",
+      "name": "Word",
+      "level": "Advanced",
+      "icon": "fa-file-word-o"
+    },
+    "competence2": {
+      "type": "technical",
+      "category": "office",
+      "name": "Excel",
+      "level": "Intermediary",
+      "icon": ""
+    },
+    "competence3": {
+      "type": "technical",
+      "category": "office",
+      "name": "Powerpoint",
+      "level": "Advanced",
+      "icon": ""
+    },
+    "competence4": {
+      "type": "technical",
+      "category": "editing",
+      "name": "Photoshop",
+      "level": "Beginner",
+      "icon": ""
+    },
+    "competence5": {
+      "type": "functional",
+      "category": "marketing",
+      "name": "Marketing plan",
+      "level": "Beginner",
+      "icon": ""
+    },
+    "competence6": {
+      "type": "functional",
+      "category": "finance",
+      "name": "Marketing plan",
+      "level": "Beginner",
+      "icon": ""
+    }
   }
+
 }

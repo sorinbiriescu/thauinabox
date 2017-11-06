@@ -19,10 +19,13 @@
             <a class="nav-link js-scroll-trigger" href="#work_experience">Work Experience</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#competences">Competences</a>
+            <a class="nav-link js-scroll-trigger" href="#education">Education</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#education">Education</a>
+            <a class="nav-link js-scroll-trigger" href="#languages">Languages</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#competences">Competences</a>
           </li>
         </ul>
       </div>
@@ -56,8 +59,8 @@
       </div>
       <div class="container">
         <ul class="timeline">
-          {% set li_class = ['', 'class=timeline-inverted'] %} {% for key, value in jobs.items() %}
-          <li {{ li_class | random }}>
+          {% for key, value in jobs.items() %}
+          <li class="{{ loop.cycle('', 'timeline-inverted') }}">
             <div class="timeline-badge info">
               <i class="glyphicon glyphicon-floppy-disk"></i>
             </div>
@@ -104,6 +107,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
+          <i class="fa fa-4x fa-university text-primary sr-icons"></i>
           <h2 class="section-heading">Education</h2>
           <hr class="primary">
         </div>
@@ -111,20 +115,46 @@
     </div>
     <div class="container">
       <div class="row">
-        <div class="col-lg-3 col-md-6 text-center">
-          <div class="service-box">
-            <i class="fa fa-4x fa-university text-primary sr-icons"></i>
-            <h3>Sturdy Templates</h3>
+        {% for key, value in education.items() %}
+        <div class="col-md-6">
+          <span>
+            <h3 class="text-center">{{ value["education_school"] }}</h3>
+            <h5 class="text-center">
+              <i class="fa fa-calendar"></i>
+              {{ value["education_start"] }} - {{ value["education_end"] }}
+            </h5>
+            <h5 class="text-center">
+              <i class="fa fa-map-marker"></i>
+              {{ value["education_school_location"] }}
+            </h5>
             <p class="text-muted">Our templates are updated regularly so they don't break.</p>
-          </div>
+          </span>
         </div>
-        <div class="col-lg-3 col-md-6 text-center">
-          <div class="service-box">
-            <i class="fa fa-4x fa-paper-plane text-primary sr-icons"></i>
-            <h3>Ready to Ship</h3>
-            <p class="text-muted">You can use this theme as is, or you can make changes!</p>
-          </div>
+        {% endfor %}
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <section id="languages">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <i class="fa fa-4x fa-language text-primary sr-icons"></i>
+          <h2 class="section-heading">Languages</h2>
+          <hr class="primary">
         </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        {% for language_key,language_value in languages.items() %}
+        <div class="col-md-{{ 12 // languages|length }} text-center">
+          <span class="flag flag-{{languages[language_key]['country_code']}} flag-8x"></span>
+          <h3>{{languages[language_key]['name'] | capitalize }}</h3>
+          <h4>{{languages[language_key]['level'] | capitalize }}</h4>
+        </div>
+        {% endfor %}
       </div>
     </div>
   </section>
@@ -133,39 +163,87 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
+          <i class="fa fa-4x fa-university text-primary sr-icons"></i>
           <h2 class="section-heading">Competences</h2>
           <hr class="primary">
         </div>
       </div>
     </div>
     <div class="container">
+      {% for comp_cat_key in competence_categories.keys() %}
       <div class="row">
-        <div class="col-lg-3 col-md-6 text-center">
-          <div class="service-box">
-            <i class="fa fa-4x fa-diamond text-primary sr-icons"></i>
-            <h3>Sturdy Templates</h3>
-            <p class="text-muted">Our templates are updated regularly so they don't break.</p>
-          </div>
+        <div class="col-md-12">
+          <span>
+            <h3>{{ comp_cat_key | capitalize }} </h3>
+          </span>
         </div>
-        <div class="col-lg-3 col-md-6 text-center">
-          <div class="service-box">
-            <i class="fa fa-4x fa-paper-plane text-primary sr-icons"></i>
-            <h3>Ready to Ship</h3>
-            <p class="text-muted">You can use this theme as is, or you can make changes!</p>
-          </div>
+      </div>
+      {% for comp_cat_value in competence_categories[comp_cat_key] %}
+      <div class="row">
+        <div class="col-md-3">
+          <span>
+            <h4>{{ comp_cat_value | capitalize }} </h4>
+          </span>
         </div>
-        <div class="col-lg-3 col-md-6 text-center">
-          <div class="service-box">
-            <i class="fa fa-4x fa-newspaper-o text-primary sr-icons"></i>
-            <h3>Up to Date</h3>
-            <p class="text-muted">We update dependencies to keep things fresh.</p>
+        <div class="col-md-9">
+          {% for comp_key,comp_value in competences.items() %} {% if competences[comp_key]['type'] == comp_cat_key and competences[comp_key]['category']
+          == comp_cat_value %}
+          <div class="row">
+            <div class="col-md-3">
+              {% if competences[comp_key]['icon'] == "" %} {% else %}
+              <div class="row">
+                <div class="col-md-12">
+                  <span>
+                    <i class="fa fa-3x {{ competences[comp_key]['icon'] }} text-primary"></i>
+                  </span>
+                </div>
+              </div>
+              {% endif %}
+              <div class="row">
+                <div class="col-md-12">
+                  <span> {{ competences[comp_key]['name'] }}</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-9">
+              <div class="progress">
+                {% if competences[comp_key]['level'] == "Beginner" %}
+                <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100" style="width: 25%;"></div>
+                {% elif competences[comp_key]['level'] == "Intermediate" %}
+                <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div>
+                {% elif competences[comp_key]['level'] == "Advanced" %}
+                <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div>
+                {% elif competences[comp_key]['level'] == "Expert" %}
+                <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
+                {% else %}
+                <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+                {% endif %}
+              </div>
+            </div>
           </div>
+          {% endif %} {% endfor %}
         </div>
-        <div class="col-lg-3 col-md-6 text-center">
-          <div class="service-box">
-            <i class="fa fa-4x fa-heart text-primary sr-icons"></i>
-            <h3>Made with Love</h3>
-            <p class="text-muted">You have to make your websites with love these days!</p>
+      </div>
+      {% endfor %} {% endfor %}
+      <div class="row">
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-7">
+          <div class="progress-meter">
+            <div class="meter meter-left" style="width: 25%;">
+              <span class="meter-text">No experience</span>
+            </div>
+            <div class="meter meter-left" style="width: 25%;">
+              <span class="meter-text">Beginner</span>
+            </div>
+            <div class="meter meter-right" style="width: 25%;">
+              <span class="meter-text">Advanced</span>
+            </div>
+            <div class="meter meter-right" style="width: 25%;">
+              <span class="meter-text">Expert</span>
+            </div>
           </div>
         </div>
       </div>
