@@ -7,7 +7,8 @@ script_dir = os.path.dirname(__file__)
 
 @app.route("/")
 @app.route('/index')
-def main():
+def index():
+    """ Main page / index"""
     return render_template('index.html')
 
 @app.route("/resume")
