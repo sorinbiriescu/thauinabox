@@ -5,16 +5,14 @@ import os
 
 script_dir = os.path.dirname(__file__)
 
-@app.route('/')
-@app.route('/index')
-
 @app.route("/")
+@app.route('/index')
 def main():
     return render_template('index.html')
 
 @app.route("/resume")
 def resume():
-    resume_json = open(os.path.join(script_dir, 'static/json/resume.json'),'r')
+    resume_json = open(os.path.join(script_dir, 'static/json/resume.json'), 'r')
     resume_content = json.loads(resume_json.read().encode('utf-8'))
     jobs=resume_content['work_experience']
     education = resume_content['education']
