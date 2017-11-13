@@ -105,23 +105,23 @@
   "languages": {
     "language1": {
       "name": "english",
-      "country_code":"gb",
-      "level":"proficient"
+      "country_code": "gb",
+      "level": "proficient"
     },
     "language2": {
       "name": "portuguese",
-      "country_code":"br",
-      "level":"native"
+      "country_code": "br",
+      "level": "native"
     },
     "language3": {
       "name": "french",
-      "country_code":"fr",
-      "level":"proficient"
+      "country_code": "fr",
+      "level": "proficient"
     },
     "language4": {
       "name": "spanish",
-      "country_code":"es",
-      "level":"basic"
+      "country_code": "es",
+      "level": "basic"
     }
   },
   "competences": {
@@ -130,13 +130,13 @@
       "category": "office",
       "name": "Word",
       "level": "Advanced",
-      "icon": "fa-file-word-o"
+      "icon": ""
     },
     "competence2": {
       "type": "technical",
       "category": "office",
       "name": "Excel",
-      "level": "Intermediary",
+      "level": "Intermediate",
       "icon": ""
     },
     "competence3": {
@@ -154,16 +154,44 @@
       "icon": ""
     },
     "competence5": {
-      "type": "functional",
-      "category": "marketing",
-      "name": "Marketing plan",
+      "type": "technical",
+      "category": "editing",
+      "name": "Illustrator",
       "level": "Beginner",
       "icon": ""
     },
     "competence6": {
       "type": "functional",
-      "category": "finance",
+      "category": "marketing",
       "name": "Marketing plan",
+      "level": "Intermediate",
+      "icon": ""
+    },
+    "competence7": {
+      "type": "functional",
+      "category": "marketing",
+      "name": "Communication plan",
+      "level": "Intermediate",
+      "icon": ""
+    },
+    "competence8": {
+      "type": "functional",
+      "category": "marketing",
+      "name": "Social Media",
+      "level": "Intermediate",
+      "icon": ""
+    },
+    "competence9": {
+      "type": "functional",
+      "category": "project management",
+      "name": "Project management",
+      "level": "Beginner",
+      "icon": ""
+    },
+    "competence10": {
+      "type": "functional",
+      "category": "finance",
+      "name": "Finance management",
       "level": "Beginner",
       "icon": ""
     }
