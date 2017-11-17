@@ -1,0 +1,307 @@
+
+<!--+------------------------------------------------------------------------------------------------+
+                                                                                                    
+      The resume page is fed by data passed to views.py controller.                                 
+      Data is in a dictionary format. Look for resume.json                                          
+                                                                                                    
+    +------------------------------------------------------------------------------------------------+-->
+
+{% extends "base.html" %} {% block content %}
+
+<body id="page-top">
+
+<!--+------------------------------------------------------------------------------------------------+
+                                                                                                    
+             Navigation menu                                                                        
+                                                                                                    
+    +------------------------------------------------------------------------------------------------+-->      
+  
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="{{ url_for('index') }}">Thauana Alice Tavares Teoro</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#work_experience">Work Experience</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#education">Education</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#languages">Languages</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#competences">Competences</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<!--+------------------------------------------------------------------------------------------------+
+                                                                                                    
+             About section                                                                    
+                                                                                                    
+    +------------------------------------------------------------------------------------------------+-->   
+  <section class="bg-primary" id="about">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <h2 class="section-heading text-white">We've got what you need!</h2>
+          <hr class="light">
+          <p class="text-faded">Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates
+            and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!</p>
+          <a class="btn btn-default btn-xl js-scroll-trigger" href="#services">Get Started!</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!--+------------------------------------------------------------------------------------------------+
+                                                                                                    
+             Work experience section                                                          
+                                                                                                    
+    +------------------------------------------------------------------------------------------------+-->   
+  <section id="work_experience">
+    <div class="row">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <i class="fa fa-4x fa-briefcase text-primary sr-icons"></i>
+            <h2 class="section-heading">Work Experience</h2>
+            <hr class="primary">
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <ul class="timeline">
+          <!-- Loop through the elements in the job dictionary and print the values -->
+          {% for job_key, job_value in jobs.items() %}
+          <!-- To display job cards in the timeline alternating left and right -->
+          <li class="{{ loop.cycle('', 'timeline-inverted') }}">
+            <div class="timeline-badge info">
+              <i class="glyphicon glyphicon-floppy-disk"></i>
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4 class="timeline-title"> {{ job_value["job_title"] }} </h4>
+              </div>
+
+              <div class="timeline-body">
+                <p>
+                  <i class="fa fa-calendar"></i>
+                  {{ job_value["job_start"] }} - {{ job_value["job_end"] }}
+                </p>
+                <p>
+                  <i class="fa fa-building"></i>
+                  {{ job_value["job_company"] }}
+                </p>
+                <p>
+                  <i class="fa fa-map-marker"></i>
+                  {{ job_value["job_location"] }}
+                </p>
+                <p> {{ job_value["job_description"]["presentation"] }} </p>
+                <p> {% for item in job_value["job_description"]["responsabilities"] %}
+                  <ul>
+                    <li> {{ item }}</li>
+                  </ul>
+                  {% endfor %}
+                </p>
+                <hr>
+                <span class="caret"></span>
+                <p>
+                  <a href="{{ job_value['job_link'] }}">{{ job_value['job_link'] }}</a>
+                </p>
+              </div>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+<!--+------------------------------------------------------------------------------------------------+
+                                                                                                    
+             Education section                                                                
+                                                                                                    
+    +------------------------------------------------------------------------------------------------+-->   
+
+  <section id="education">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <i class="fa fa-4x fa-university text-primary sr-icons"></i>
+          <h2 class="section-heading">Education</h2>
+          <hr class="primary">
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <!-- Loop through the elements in the education dictionary and print the values -->
+        {% for education_key, education_value in education.items() %}
+        <div class="col-md-6">
+          <span>
+            <h3 class="text-center">{{ education_value["education_school"] }}</h3>
+            <h5 class="text-center">
+              <i class="fa fa-calendar"></i>
+              {{ education_value["education_start"] }} - {{ education_value["education_end"] }}
+            </h5>
+            <h5 class="text-center">
+              <i class="fa fa-map-marker"></i>
+              {{ education_value["education_school_location"] }}
+            </h5>
+            <p class="text-muted">Our templates are updated regularly so they don't break.</p>
+          </span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    </div>
+  </section>
+
+<!--+------------------------------------------------------------------------------------------------+
+                                                                                                    
+             Languages section                                                                
+                                                                                                    
+    +-----------------------------------------------------------------------------------------------+-->   
+
+  <section id="languages">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <i class="fa fa-4x fa-language text-primary sr-icons"></i>
+          <h2 class="section-heading">Languages</h2>
+          <hr class="primary">
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <!-- Loop through the elements in the language dictionary and print the values -->
+        {% for language_key,language_value in languages.items() %}
+        <!-- Counts the total elements in the language dictionary and determines the size of the columns.
+        Cannot be more than 12 as it's Bootstrap -->
+        <div class="col-md-{{ 12 // languages|length }} text-center">
+          <!-- Uses flag-css-.css to get automatically the country flag based on the country code -->
+          <span class="flag flag-{{languages[language_key]['country_code']}} flag-8x"></span>
+          <h3>{{language_value['name'] | capitalize }}</h3>
+          <h4>{{language_value['level'] | capitalize }}</h4>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+<!--+------------------------------------------------------------------------------------------------+
+                                                                                                    
+             Competences section                                                              
+                                                                                                    
+    +------------------------------------------------------------------------------------------------+-->   
+
+  <section id="competences">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <i class="fa fa-4x fa-university text-primary sr-icons"></i>
+          <h2 class="section-heading">Competences</h2>
+          <hr class="primary">
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <!-- Loop through the elements in the competence categories dictionary and
+        print the keys (unique competence types) and values (unique categories of competence types ) -->
+      {% for comp_cat_key in competence_categories.keys() %}
+      <div class="row">
+        <div class="col-md-12">
+          <span>
+            <h3>{{ comp_cat_key | capitalize }} </h3>
+          </span>
+        </div>
+      </div>
+      {% for comp_cat_value in competence_categories[comp_cat_key] %}
+      <div class="row">
+        <div class="col-md-3">
+          <span>
+            <h4>{{ comp_cat_value | capitalize }} </h4>
+          </span>
+        </div>
+        <div class="col-md-9">
+          {% for comp_key,comp_value in competences.items() %} {% if competences[comp_key]['type'] == comp_cat_key and competences[comp_key]['category']
+          == comp_cat_value %}
+          <div class="row">
+            <div class="col-md-3">
+              <!-- If the competence doesn't have an icon specified, it skips creating the icon row -->
+              {% if comp_value['icon'] == "" %} {% else %}
+              <div class="row">
+                <div class="col-md-12">
+                  <span>
+                    <i class="fa fa-3x {{ competences[comp_key]['icon'] }} text-primary"></i>
+                  </span>
+                </div>
+              </div>
+              {% endif %}
+              <div class="row">
+                <div class="col-md-12">
+                  <span> {{ comp_value['name'] }}</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-9">
+              <div class="progress">
+                <!-- Sets the value of the progress bar depending on the level specified in the competence dict -->
+                {% if comp_value['level'] == "Beginner" %}
+                <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100" style="width: 25%;"></div>
+                {% elif comp_value['level'] == "Intermediate" %}
+                <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div>
+                {% elif comp_value['level'] == "Advanced" %}
+                <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div>
+                {% elif comp_value['level'] == "Expert" %}
+                <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
+                {% else %}
+                <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          {% endif %} {% endfor %}
+        </div>
+      </div>
+      {% endfor %} {% endfor %}
+      <div class="row">
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-7">
+          <div class="progress-meter">
+            <div class="meter meter-left" style="width: 25%;">
+              <span class="meter-text">No experience</span>
+            </div>
+            <div class="meter meter-left" style="width: 25%;">
+              <span class="meter-text">Beginner</span>
+            </div>
+            <div class="meter meter-right" style="width: 25%;">
+              <span class="meter-text">Advanced</span>
+            </div>
+            <div class="meter meter-right" style="width: 25%;">
+              <span class="meter-text">Expert</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  {% endblock %}
