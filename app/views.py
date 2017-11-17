@@ -6,14 +6,6 @@ import os
 script_dir = os.path.dirname(__file__)
 
 @app.route("/")
-<<<<<<< HEAD
-def index():
-    return render_template('index.html')
-
-@app.route("/timeline")
-def timeline():
-    return render_template('timeline.html')
-=======
 @app.route('/index')
 def index():
     """ Main page / index"""
@@ -52,4 +44,3 @@ def resume():
 @app.route("/leisure")
 def leisure():
     return render_template('leisure.html')
->>>>>>> 49a9eac7aad151a0b95fce5970968a2579cba424
